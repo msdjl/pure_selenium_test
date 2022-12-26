@@ -9,6 +9,8 @@ jobs:
     services:
       selenium-chrome:
         image: selenium/standalone-chrome
+        ports:
+          - 4444:4444
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -21,4 +23,4 @@ jobs:
       - name: Run tests
         run: npm test
         env:
-          SELENIUM_REMOTE_URL: http://selenium-chrome:4444/wd/hub
+          SELENIUM_REMOTE_URL: http://127.0.0.1:4444/wd/hub
