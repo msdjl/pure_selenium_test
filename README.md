@@ -2,6 +2,8 @@
 
 A few tests covering https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all
 
+Tests run in Github Actions in a selenium docker container
+
 ## How to run tests locally
 
 Install nodejs and jdk, then
