@@ -1,0 +1,24 @@
+name: Pure Selenium Tests
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+jobs:
+  test:
+    services:
+      selenium-chrome:
+        image: selenium/standalone-chrome
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test
+        env:
+          SELENIUM_REMOTE_URL: http://selenium-chrome:4444/wd/hub
