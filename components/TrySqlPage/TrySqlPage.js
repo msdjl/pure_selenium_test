@@ -19,6 +19,7 @@ class TrySqlPage {
   /** Click Restore Database button and confirm restoration */
   async restoreDB() {
     await this.driver.findElement(By.id('restoreDBBtn')).click();
+    await this.driver.wait(until.alertIsPresent());
     await this.driver.switchTo().alert().accept();
     await this.driver.switchTo().defaultContent();
     // wait for alert animation to complete. is there a better way?

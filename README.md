@@ -13,3 +13,7 @@ Install nodejs and jdk, then
 `npm i`
 
 `npm test`
+
+#### or with docker
+
+`docker compose up --abort-on-container-exit --exit-code-from test`
